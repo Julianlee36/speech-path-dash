@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea'
 const patientSchema = z.object({
   // Patient Information
   patient_name: z.string().min(1, 'Patient name is required'),
+  dob: z.string().optional(),
   
   // Guardian/Parent Information (optional for adult clients)
   guardian_name: z.string().optional(),
@@ -67,6 +68,7 @@ export function PatientForm({ onPatientCreated, onCancel }: PatientFormProps) {
         .from('patients')
         .insert({
           patient_name: data.patient_name,
+          dob: data.dob || null,
           guardian_name: data.guardian_name || null,
           relation_to_patient: data.relation_to_patient || null,
           funding_type: data.funding_type,
@@ -107,6 +109,14 @@ export function PatientForm({ onPatientCreated, onCancel }: PatientFormProps) {
             placeholder="Enter patient's full name"
             {...register('patient_name')}
             error={errors.patient_name?.message}
+          />
+
+          {/* Date of Birth */}
+          <Input
+            label="Date of Birth"
+            type="date"
+            {...register('dob')}
+            error={errors.dob?.message}
           />
 
           {/* Guardian/Parent Information */}
