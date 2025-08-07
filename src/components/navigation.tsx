@@ -1,12 +1,12 @@
 'use client'
 
 import React from 'react'
-import { Calendar, Users, Plus } from 'lucide-react'
+import { Settings, Clock, FileText, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 interface NavigationProps {
-  currentView: 'dashboard' | 'patients' | 'new-patient'
-  onViewChange: (view: 'dashboard' | 'patients' | 'new-patient') => void
+  currentView: 'admin' | 'log-session' | 'invoicing'
+  onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
 }
 
 export function Navigation({ currentView, onViewChange }: NavigationProps) {
@@ -16,7 +16,7 @@ export function Navigation({ currentView, onViewChange }: NavigationProps) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <button
-              onClick={() => onViewChange('dashboard')}
+              onClick={() => onViewChange('admin')}
               className="text-xl font-bold text-gray-900 hover:text-blue-600 transition-colors cursor-pointer"
             >
               Speech Path Dash
@@ -24,33 +24,62 @@ export function Navigation({ currentView, onViewChange }: NavigationProps) {
             
             <div className="flex space-x-1">
               <Button
-                variant={currentView === 'dashboard' ? 'default' : 'ghost'}
-                onClick={() => onViewChange('dashboard')}
+                variant={currentView === 'admin' ? 'default' : 'ghost'}
+                onClick={() => onViewChange('admin')}
                 className="flex items-center gap-2"
               >
-                <Calendar className="w-4 h-4" />
-                Dashboard
+                <Settings className="w-4 h-4" />
+                Admin
               </Button>
               
               <Button
-                variant={currentView === 'patients' ? 'default' : 'ghost'}
-                onClick={() => onViewChange('patients')}
+                variant={currentView === 'log-session' ? 'default' : 'ghost'}
+                onClick={() => onViewChange('log-session')}
                 className="flex items-center gap-2"
               >
-                <Users className="w-4 h-4" />
-                Patients
+                <Clock className="w-4 h-4" />
+                Log a Session
+              </Button>
+
+              <Button
+                variant={currentView === 'invoicing' ? 'default' : 'ghost'}
+                onClick={() => onViewChange('invoicing')}
+                className="flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4" />
+                Invoicing
               </Button>
             </div>
           </div>
           
           <div className="flex items-center space-x-4">
-            <Button
-              onClick={() => onViewChange('new-patient')}
-              className="flex items-center gap-2"
-            >
-              <Plus className="w-4 h-4" />
-              Add Patient
-            </Button>
+            {currentView === 'admin' && (
+              <Button
+                onClick={() => onViewChange('admin')}
+                className="flex items-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                Add Patient
+              </Button>
+            )}
+            {currentView === 'log-session' && (
+              <Button
+                onClick={() => onViewChange('log-session')}
+                className="flex items-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                New Session
+              </Button>
+            )}
+            {currentView === 'invoicing' && (
+              <Button
+                onClick={() => onViewChange('invoicing')}
+                className="flex items-center gap-2"
+              >
+                <Plus className="w-4 h-4" />
+                Create Invoice
+              </Button>
+            )}
           </div>
         </div>
       </div>
