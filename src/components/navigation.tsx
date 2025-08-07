@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 
 interface NavigationProps {
   currentView: 'admin' | 'log-session' | 'invoicing'
-  onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
+  onViewChange: (view: 'admin' | 'log-session' | 'invoicing', action?: string) => void
 }
 
 export function Navigation({ currentView, onViewChange }: NavigationProps) {
@@ -55,7 +55,7 @@ export function Navigation({ currentView, onViewChange }: NavigationProps) {
           <div className="flex items-center space-x-4">
             {currentView === 'admin' && (
               <Button
-                onClick={() => onViewChange('admin')}
+                onClick={() => onViewChange('admin', 'add-patient')}
                 className="flex items-center gap-2"
               >
                 <Plus className="w-4 h-4" />

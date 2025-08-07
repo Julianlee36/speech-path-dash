@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { FileText, Plus, Send, Download, DollarSign } from 'lucide-react'
 
 interface InvoicingSectionProps {
-  onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
+  onViewChange: (view: 'admin' | 'log-session' | 'invoicing', action?: string) => void
 }
 
 export function InvoicingSection({ onViewChange: _ }: InvoicingSectionProps) {

@@ -8,17 +8,25 @@ import { InvoicingSection } from '@/components/invoicing-section'
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<'admin' | 'log-session' | 'invoicing'>('admin')
+  const [adminAction, setAdminAction] = useState<string | undefined>()
+
+  const handleViewChange = (view: 'admin' | 'log-session' | 'invoicing', action?: string) => {
+    setCurrentView(view)
+    if (action) {
+      setAdminAction(action)
+    }
+  }
 
   const renderContent = () => {
     switch (currentView) {
       case 'admin':
-        return <AdminSection onViewChange={setCurrentView} />
+        return <AdminSection onViewChange={handleViewChange} initialAction={adminAction} />
       case 'log-session':
-        return <LogSessionSection onViewChange={setCurrentView} />
+        return <LogSessionSection onViewChange={handleViewChange} />
       case 'invoicing':
-        return <InvoicingSection onViewChange={setCurrentView} />
+        return <InvoicingSection onViewChange={handleViewChange} />
       default:
-        return <AdminSection onViewChange={setCurrentView} />
+        return <AdminSection onViewChange={handleViewChange} initialAction={adminAction} />
     }
   }
 
@@ -26,7 +34,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Navigation 
         currentView={currentView}
-        onViewChange={setCurrentView}
+        onViewChange={handleViewChange}
       />
       {renderContent()}
     </div>

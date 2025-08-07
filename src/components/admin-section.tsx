@@ -1,17 +1,24 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { PatientList } from './patient-list'
 import { PatientForm } from './patient-form'
 import { Button } from '@/components/ui/button'
 import { Users, DollarSign } from 'lucide-react'
 
 interface AdminSectionProps {
-  onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
+  onViewChange: (view: 'admin' | 'log-session' | 'invoicing', action?: string) => void
+  initialAction?: string
 }
 
-export function AdminSection({ onViewChange: _ }: AdminSectionProps) {
+export function AdminSection({ onViewChange: _, initialAction }: AdminSectionProps) {
   const [currentAdminView, setCurrentAdminView] = useState<'patients' | 'session-types' | 'new-patient'>('patients')
+
+  useEffect(() => {
+    if (initialAction === 'add-patient') {
+      setCurrentAdminView('new-patient')
+    }
+  }, [initialAction])
 
   const handlePatientCreated = () => {
     setCurrentAdminView('patients')

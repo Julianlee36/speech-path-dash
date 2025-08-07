@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Clock, Plus, Calendar, Users } from 'lucide-react'
 
 interface LogSessionSectionProps {
-  onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
+  onViewChange: (view: 'admin' | 'log-session' | 'invoicing', action?: string) => void
 }
 
 export function LogSessionSection({ onViewChange: _ }: LogSessionSectionProps) {
