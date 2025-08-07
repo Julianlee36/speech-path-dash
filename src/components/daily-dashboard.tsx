@@ -78,7 +78,7 @@ export function DailyDashboard({ onNewSession }: DailyDashboardProps) {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Today's Sessions</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Today&apos;s Sessions</h1>
           <p className="text-gray-600 mt-1">
             {format(new Date(), 'EEEE, MMMM d, yyyy')}
           </p>
@@ -131,7 +131,7 @@ export function DailyDashboard({ onNewSession }: DailyDashboardProps) {
       {/* Sessions Table */}
       <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">Today's Sessions</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Today&apos;s Sessions</h2>
         </div>
         
         {isLoading ? (

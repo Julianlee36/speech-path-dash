@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { format, parse, differenceInMinutes } from 'date-fns'
-import { Search, Plus } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { supabase, type Patient } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -70,7 +70,7 @@ export function SessionForm({ onSessionCreated }: SessionFormProps) {
         if (duration > 0) {
           // Duration is calculated automatically by the database
         }
-      } catch (error) {
+      } catch {
         // Invalid time format
       }
     }
