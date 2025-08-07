@@ -4,13 +4,13 @@ import React, { useState } from 'react'
 import { PatientList } from './patient-list'
 import { PatientForm } from './patient-form'
 import { Button } from '@/components/ui/button'
-import { Users, Settings, DollarSign } from 'lucide-react'
+import { Users, DollarSign } from 'lucide-react'
 
 interface AdminSectionProps {
   onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
 }
 
-export function AdminSection({ onViewChange }: AdminSectionProps) {
+export function AdminSection({ onViewChange: _ }: AdminSectionProps) {
   const [currentAdminView, setCurrentAdminView] = useState<'patients' | 'session-types' | 'new-patient'>('patients')
 
   const handlePatientCreated = () => {

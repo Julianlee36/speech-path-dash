@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { FileText, Plus, Send, Eye, Download, DollarSign } from 'lucide-react'
+import { FileText, Plus, Send, Download, DollarSign } from 'lucide-react'
 
 interface InvoicingSectionProps {
   onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
 }
 
-export function InvoicingSection({ onViewChange }: InvoicingSectionProps) {
+export function InvoicingSection({ onViewChange: _ }: InvoicingSectionProps) {
   const [currentInvoiceView, setCurrentInvoiceView] = useState<'overview' | 'create' | 'pending'>('overview')
 
   const renderInvoiceContent = () => {

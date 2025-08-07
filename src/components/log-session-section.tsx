@@ -9,7 +9,7 @@ interface LogSessionSectionProps {
   onViewChange: (view: 'admin' | 'log-session' | 'invoicing') => void
 }
 
-export function LogSessionSection({ onViewChange }: LogSessionSectionProps) {
+export function LogSessionSection({ onViewChange: _ }: LogSessionSectionProps) {
   const [showSessionForm, setShowSessionForm] = useState(false)
 
   const handleSessionCreated = () => {
@@ -47,7 +47,7 @@ export function LogSessionSection({ onViewChange }: LogSessionSectionProps) {
           <div className="bg-white rounded-lg shadow p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Today's Sessions</p>
+                <p className="text-sm font-medium text-gray-600">Today&apos;s Sessions</p>
                 <p className="text-2xl font-bold text-gray-900">3</p>
               </div>
               <Calendar className="w-8 h-8 text-blue-600" />
