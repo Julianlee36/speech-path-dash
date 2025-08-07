@@ -15,7 +15,7 @@ export function Textarea({ label, error, className = '', ...props }: TextareaPro
       )}
       <textarea
         className={`
-          w-full px-3 py-2 border border-gray-300 rounded-md 
+          w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
           placeholder-gray-400
           ${error ? 'border-red-500 focus:ring-red-500' : ''}
